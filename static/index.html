@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redis Chat</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="chat">
+    <header class="header">
+      <div>
+        <h1>Чат с Redis</h1>
+        <p>Python · FastAPI · Redis Pub/Sub · Docker</p>
+      </div>
+      <span id="status" class="status">Подключение…</span>
+    </header>
+
+    <section class="settings">
+      <label for="username">Ваше имя</label>
+      <input id="username" maxlength="32" placeholder="Например, Алексей">
+    </section>
+
+    <section id="messages" class="messages" aria-live="polite"></section>
+
+    <div id="reply-preview" class="reply-preview hidden">
+      <span id="reply-text"></span>
+      <button id="cancel-reply" type="button" aria-label="Отменить ответ">×</button>
+    </div>
+
+    <form id="form" class="composer">
+      <input id="message" autocomplete="off" maxlength="2000" placeholder="Напишите сообщение…" required>
+      <button type="submit">Отправить</button>
+    </form>
+    <footer>Откройте эту страницу в двух вкладках, чтобы проверить обмен сообщениями.</footer>
+  </main>
+  <script src="/static/chat.js"></script>
+</body>
+</html>

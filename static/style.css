@@ -1,0 +1,54 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #eaeaea;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.chat {
+  width: 450px;
+  height: 90vh;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.header {
+  padding: 15px 20px;
+  background: #007bff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #0069d9;
+}
+.header h1 { margin: 0; font-size: 20px; }
+.header p { margin: 3px 0 0 0; font-size: 12px; opacity: 0.8; }
+.status { font-size: 12px; background: rgba(0,0,0,0.2); padding: 4px 8px; border-radius: 12px; }
+.status.online { background: #28a745; }
+.settings { padding: 10px 20px; background: #f8f9fa; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+.settings label { font-size: 13px; color: #666; }
+.settings input { flex: 1; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; }
+.messages { flex: 1; padding: 20px; overflow-y: auto; background: #f4f6f9; display: flex; flex-direction: column; gap: 12px; }
+.system { text-align: center; color: #888; font-size: 12px; margin: 5px 0; font-style: italic; }
+.message { display: flex; flex-direction: column; align-items: flex-start; }
+.message.mine { align-items: flex-end; }
+.bubble { max-width: 75%; background: #fff; padding: 10px 14px; border-radius: 8px; border: 1px solid #e1e4e8; position: relative; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.message.mine .bubble { background: #d1e7dd; border-color: #badbcc; }
+.meta { display: flex; justify-content: space-between; gap: 15px; font-size: 11px; color: #666; margin-bottom: 4px; }
+.content { font-size: 14px; color: #212529; word-break: break-word; }
+.reply-quote { font-size: 12px; background: rgba(0,0,0,0.05); border-left: 3px solid #007bff; padding: 4px 8px; margin-bottom: 6px; border-radius: 2px; color: #555; }
+.reply-action { background: none; border: none; color: #007bff; font-size: 11px; cursor: pointer; padding: 0; margin-top: 6px; display: block; }
+.reply-action:hover { text-decoration: underline; }
+.reply-preview { padding: 8px 20px; background: #fff3cd; border-top: 1px solid #ffeeba; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #856404; }
+.reply-preview.hidden { display: none; }
+.reply-preview button { background: none; border: none; font-size: 18px; cursor: pointer; color: #856404; }
+.composer { display: flex; padding: 15px 20px; background: #fff; border-top: 1px solid #eee; gap: 10px; }
+.composer input { flex: 1; padding: 10px 14px; border: 1px solid #ccc; border-radius: 20px; outline: none; font-size: 14px; }
+.composer button { background: #007bff; color: white; border: none; padding: 0 20px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: bold; }
+.composer button:hover { background: #0056b3; }
+footer { text-align: center; font-size: 10px; color: #aaa; padding-bottom: 5px; background: #fff; }

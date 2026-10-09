@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: chat_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - chat_network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: chat_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret_pass
+      - POSTGRES_DB=chat_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - chat_network
+
+  web:
+    build: .
+    container_name: chat_web
+    ports:
+      - "4200:4200"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - DATABASE_URL=postgresql://postgres:secret_pass@postgres:5432/chat_db
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - chat_network
+
+networks:
+  chat_network:
+    driver: bridge
+
+volumes:
+  pgdata:
